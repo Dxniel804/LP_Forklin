@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const DIARIO_DIGITAL_URL =
   process.env.NEXT_PUBLIC_DIARIO_DIGITAL_URL ?? "https://drclass.forklin.com.br";
 
@@ -21,50 +23,102 @@ const produtos = [
   },
 ];
 
+function ArrowIcon() {
+  return (
+    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden>
+      <path
+        d="M0 5.29c0-.16.06-.31.16-.42.1-.11.24-.17.38-.17h12.63L9.8 1.0C9.7.9 9.64.75 9.64.59c0-.16.06-.31.16-.42C9.9.06 10.04 0 10.18 0c.14 0 .28.06.38.17l4.29 4.7c.1.11.15.24.15.42 0 .17-.05.3-.15.42l-4.29 4.7c-.1.11-.24.17-.38.17-.14 0-.28-.06-.38-.17-.1-.1-.16-.25-.16-.41 0-.16.06-.31.16-.42l3.37-3.7H.54c-.14 0-.28-.06-.38-.17C.06 5.6 0 5.45 0 5.29Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-6 sm:px-10">
-        <span className="text-lg font-extrabold tracking-tight text-white">
-          Forklin
-        </span>
+      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6 sm:px-10">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/logo-forklin.png"
+            alt="Forklin"
+            width={344}
+            height={287}
+            priority
+            className="h-8 w-auto"
+          />
+          <span
+            className="text-2xl"
+            style={{ fontFamily: "var(--font-logo), sans-serif" }}
+          >
+            <span className="font-normal text-[var(--brand)]">f</span>
+            <span className="font-normal text-[var(--ink)]">or</span>
+            <span className="font-normal text-[var(--brand)]">k</span>
+            <span className="font-light text-[var(--ink)]">lin</span>
+          </span>
+        </div>
+
+        <nav className="hidden items-center gap-10 md:flex">
+          <a href="#produtos" className="text-base font-semibold text-[var(--ink)]/70 hover:text-[var(--ink)]">
+            Soluções
+          </a>
+          <a href="#" className="text-base font-semibold text-[var(--ink)]/70 hover:text-[var(--ink)]">
+            Clientes
+          </a>
+          <a href="#" className="text-base font-semibold text-[var(--ink)]/70 hover:text-[var(--ink)]">
+            Sobre Nós
+          </a>
+        </nav>
+
         <a
           href="#produtos"
-          className="text-sm font-medium text-white/80 transition hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--brand-dark)]"
         >
-          Produtos
+          Realizar Orçamento
+          <ArrowIcon />
         </a>
       </header>
 
-      <section
-        className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-32 text-center sm:py-40"
-        style={{
-          background:
-            "radial-gradient(60% 80% at 50% 0%, var(--navy-soft) 0%, var(--navy-mid) 55%, var(--navy) 100%)",
-        }}
-      >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 left-1/2 h-96 w-[36rem] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-          style={{ background: "var(--accent-cyan)" }}
-        />
-        <p className="relative mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
-          Plataforma Forklin
+      <section className="mx-auto flex w-full max-w-4xl flex-col items-center px-6 pt-16 pb-8 text-center sm:pt-24">
+        <p
+          className="text-2xl italic text-[var(--ink)]"
+          style={{ fontFamily: "var(--font-display), sans-serif", fontWeight: 500 }}
+        >
+          Um ecossistema, várias soluções
         </p>
-        <h1 className="relative max-w-3xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-          Um só lugar para os sistemas do seu negócio
+
+        <h1
+          className="mt-6 text-5xl leading-[1.05] font-bold tracking-tight sm:text-7xl"
+          style={{ fontFamily: "var(--font-display), sans-serif" }}
+        >
+          <span className="text-[var(--brand)]">Conecte. </span>
+          <span className="text-[var(--ink)]">Cresça.</span>
         </h1>
-        <p className="relative mt-6 max-w-xl text-balance text-lg text-white/70">
-          A Forklin reúne módulos independentes — como o Diário Digital — em
-          uma única plataforma, simples de acessar e de expandir.
-        </p>
+
         <a
           href="#produtos"
-          className="relative mt-10 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition hover:bg-[var(--brand-dark)]"
+          className="mt-10 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-8 py-4 text-base font-medium text-white transition hover:bg-[var(--brand-dark)]"
         >
-          Ver produtos
-          <span aria-hidden>&darr;</span>
+          Realizar Orçamento
+          <ArrowIcon />
         </a>
+      </section>
+
+      {/* Pilha de cards — visual do hero, puxado do Figma */}
+      <section className="relative mx-auto flex h-[380px] w-full max-w-5xl items-center justify-center px-6 sm:h-[480px]">
+        <div className="absolute h-[260px] w-[190px] -translate-x-[110px] -rotate-[20deg] rounded-[32px] bg-[var(--sky)] shadow-[0_20px_30px_-10px_rgba(0,0,0,0.35)] sm:h-[340px] sm:w-[250px] sm:-translate-x-[150px]" />
+        <div className="absolute h-[270px] w-[195px] translate-x-[110px] rotate-[20deg] rounded-[32px] bg-[var(--near-black)] shadow-[0_20px_30px_-10px_rgba(0,0,0,0.35)] sm:h-[350px] sm:w-[255px] sm:translate-x-[150px]" />
+        <div className="relative flex h-[300px] w-[220px] flex-col items-center justify-between rounded-[32px] bg-[var(--brand)] p-6 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.4)] sm:h-[380px] sm:w-[280px] sm:p-8">
+          <span className="rounded-full bg-white px-5 py-2 text-sm font-bold text-[var(--brand)]">
+            Orçamento
+          </span>
+          <p
+            className="text-center text-xl leading-snug font-semibold text-white sm:text-2xl"
+            style={{ fontFamily: "var(--font-display), sans-serif" }}
+          >
+            Construa a sua Solução.
+          </p>
+        </div>
       </section>
 
       <section
@@ -137,7 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[var(--navy)] px-6 py-8 text-center text-sm text-white/50">
+      <footer className="bg-[var(--near-black)] px-6 py-8 text-center text-sm text-white/50">
         © {new Date().getFullYear()} Forklin. Todos os direitos reservados.
       </footer>
     </div>

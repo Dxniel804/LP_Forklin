@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Montserrat, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+// Wordmark "forklin" no header
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-logo",
+  subsets: ["latin"],
+  weight: ["300", "400"],
+});
+
+// Nav, botões, corpo
+const montserrat = Montserrat({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "600"],
+});
+
+// Headline e eyebrow itálico do hero
+const instrumentSans = Instrument_Sans({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -16,7 +32,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} h-full`}>
+    <html
+      lang="pt-BR"
+      className={`${spaceGrotesk.variable} ${montserrat.variable} ${instrumentSans.variable} h-full`}
+    >
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );

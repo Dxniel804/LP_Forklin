@@ -6,16 +6,12 @@
    ============================================================ */
 
 :root {
-  /* Marca */
-  --brand:       #2451FF;
-  --brand-dark:  #1230B0;
-  --brand-light: #E8EEFF;
-  --accent-cyan: #06B6D4;
-
-  /* Navy — hero, footer */
-  --navy:        #0B1220;
-  --navy-mid:    #14204A;
-  --navy-soft:   #1B2E77;
+  /* Marca — direto do design no Figma */
+  --brand:       #043077;
+  --brand-dark:  #032454;
+  --brand-light: #E8EEFB;
+  --near-black:  #0B0F24;
+  --sky:         #38BDF8;
 
   /* Superfícies */
   --surface:     #FFFFFF;
@@ -23,7 +19,7 @@
   --line:        #E2E8F0;
 
   /* Tipografia */
-  --ink:         #0B1220;
+  --ink:         #1E1E1E;
   --ink-soft:    #475569;
   --ink-faint:   #94A3B8;
 }
@@ -31,7 +27,7 @@
 body {
   background-color: var(--surface);
   color: var(--ink);
-  font-family: var(--font-sans), "Inter", system-ui, sans-serif;
+  font-family: var(--font-sans), "Montserrat", system-ui, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
