@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ============================================================
+   FORKLIN — Landing page institucional (hub de produtos)
+   Paleta: azul elétrico sobre navy escuro, cards em superfície clara
+   ============================================================ */
+
+:root {
+  /* Marca */
+  --brand:       #2451FF;
+  --brand-dark:  #1230B0;
+  --brand-light: #E8EEFF;
+  --accent-cyan: #06B6D4;
+
+  /* Navy — hero, footer */
+  --navy:        #0B1220;
+  --navy-mid:    #14204A;
+  --navy-soft:   #1B2E77;
+
+  /* Superfícies */
+  --surface:     #FFFFFF;
+  --surface-alt: #F4F6FB;
+  --line:        #E2E8F0;
+
+  /* Tipografia */
+  --ink:         #0B1220;
+  --ink-soft:    #475569;
+  --ink-faint:   #94A3B8;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans), "Inter", system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

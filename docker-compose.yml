@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # NEXT_PUBLIC_* precisa existir em build-time (fica embutido no bundle
+        # do client) — o mesmo valor também é setado em runtime abaixo.
+        NEXT_PUBLIC_DIARIO_DIGITAL_URL: ${NEXT_PUBLIC_DIARIO_DIGITAL_URL:-https://drclass.forklin.com.br}
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3001:3000"
