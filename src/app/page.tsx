@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TypingHeadline from "./TypingHeadline";
 
 const DIARIO_DIGITAL_URL =
   process.env.NEXT_PUBLIC_DIARIO_DIGITAL_URL ?? "https://drclass.forklin.com.br";
@@ -78,7 +79,7 @@ const cards: {
     titulo: "Conectado",
     texto: "Todos os seus sistemas integrados em uma única plataforma.",
     rotate: "-rotate-[8deg] hover:rotate-0",
-    shift: "-translate-x-[205px] sm:-translate-x-[290px]",
+    shift: "-translate-x-[140px] sm:-translate-x-[380px]",
     z: "z-0",
   },
   {
@@ -88,7 +89,7 @@ const cards: {
     texto: "Módulos sob medida para o tamanho e o momento do seu negócio.",
     rotate: "",
     shift: "",
-    z: "z-10 scale-[1.04]",
+    z: "z-10 sm:scale-[1.04]",
   },
   {
     tone: "black",
@@ -96,7 +97,7 @@ const cards: {
     titulo: "Escalável",
     texto: "Cresce junto com a sua operação, sem trocar de plataforma.",
     rotate: "rotate-[8deg] hover:rotate-0",
-    shift: "translate-x-[205px] sm:translate-x-[290px]",
+    shift: "translate-x-[140px] sm:translate-x-[380px]",
     z: "z-0",
   },
 ];
@@ -145,14 +146,14 @@ export default function Home() {
 
         <a
           href="#produtos"
-          className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--brand-dark)]"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--brand)] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[var(--brand-dark)] sm:px-6 sm:py-3"
         >
-          Realizar Orçamento
+          <span className="hidden sm:inline">Realizar </span>Orçamento
           <ArrowIcon />
         </a>
       </header>
 
-      <section className="mx-auto flex w-full max-w-4xl flex-col items-center px-6 pt-16 pb-8 text-center sm:pt-24">
+      <section className="mx-auto w-full max-w-4xl px-6 pt-16 pb-8 text-center sm:pt-24">
         <p
           className="text-2xl italic text-[var(--ink)]"
           style={{ fontFamily: "var(--font-display), sans-serif", fontWeight: 500 }}
@@ -160,15 +161,9 @@ export default function Home() {
           Um ecossistema, várias soluções
         </p>
 
-        <h1
-          className="mt-6 text-5xl leading-[1.05] font-bold tracking-tight text-[var(--brand)] sm:text-7xl"
-          style={{ fontFamily: "var(--font-display), sans-serif" }}
-        >
-          <span className="block">Conecte.</span>
-          <span className="block">Cresça.</span>
-        </h1>
+        <TypingHeadline />
 
-        <p className="mt-6 max-w-md text-base text-[var(--ink)]/60 sm:text-lg">
+        <p className="mx-auto mt-6 max-w-md text-base text-[var(--ink)]/60 sm:text-lg">
           A plataforma que une os sistemas de gestão do seu negócio — comece
           com um módulo, escale para quantos precisar.
         </p>
@@ -191,31 +186,31 @@ export default function Home() {
       </section>
 
       {/* Leque de cards — visual do hero, puxado do Figma */}
-      <section className="relative mx-auto flex h-[440px] w-full max-w-5xl items-center justify-center px-6 pt-16 sm:h-[560px] sm:pt-20">
+      <section className="relative mx-auto flex h-[520px] w-full max-w-6xl items-center justify-center overflow-x-hidden px-6 pt-20 sm:h-[680px] sm:pt-24">
         {cards.map((card, i) => {
           const Icon = card.icon;
           return (
           <div
             key={i}
-            className={`group absolute flex h-[320px] w-[230px] cursor-default flex-col justify-between rounded-[32px] p-6 shadow-[0_20px_30px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out hover:z-20 hover:scale-110 hover:shadow-[0_28px_40px_-12px_rgba(0,0,0,0.45)] sm:h-[400px] sm:w-[290px] sm:p-8 ${toneClasses[card.tone]} ${card.rotate} ${card.shift} ${card.z}`}
+            className={`group absolute flex h-[290px] w-[195px] cursor-default flex-col justify-between rounded-[28px] p-5 shadow-[0_20px_30px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out hover:z-20 hover:scale-110 hover:shadow-[0_28px_40px_-12px_rgba(0,0,0,0.45)] sm:h-[520px] sm:w-[380px] sm:rounded-[36px] sm:p-10 ${toneClasses[card.tone]} ${card.rotate} ${card.shift} ${card.z}`}
           >
             {card.badge ? (
-              <span className="self-start rounded-full bg-white px-5 py-2 text-sm font-bold text-[var(--brand)]">
+              <span className="self-start rounded-full bg-white px-5 py-2 text-sm font-bold text-[var(--brand)] sm:px-6 sm:py-2.5 sm:text-base">
                 {card.badge}
               </span>
             ) : Icon ? (
-              <span className="flex size-11 items-center justify-center rounded-full bg-white/15 text-white transition-colors group-hover:bg-white/25">
+              <span className="flex size-11 items-center justify-center rounded-full bg-white/15 text-white transition-colors group-hover:bg-white/25 sm:size-14">
                 <Icon />
               </span>
             ) : null}
             <div>
               <p
-                className="text-xl leading-snug font-semibold text-white sm:text-2xl"
+                className="text-2xl leading-snug font-semibold text-white sm:text-3xl"
                 style={{ fontFamily: "var(--font-display), sans-serif" }}
               >
                 {card.titulo}
               </p>
-              <p className="mt-3 text-sm text-white/70">{card.texto}</p>
+              <p className="mt-3 text-sm text-white/70 sm:text-base">{card.texto}</p>
             </div>
           </div>
           );
